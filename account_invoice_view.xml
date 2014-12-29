@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>        
+        <record id="cbk_account_invoice_agent_tree" model="ir.ui.view">
+            <field name="name">account.invoice.agent.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="date_due" position="after">
+                        <field name="agent_id"/>                                      
+                    </field>                    
+                </data>                
+            </field>
+        </record>        
+
+        <record id="cbk_account_invoice_agent_filter" model="ir.ui.view">
+            <field name="name">account.invoice.agent.filter</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">                
+                <group expand="0" string="Group By...">                    
+                    <filter string="Agente comercial" icon="terp-go-month" domain="[]"  context="{'group_by':'agent_id'}"/>
+                </group>
+            </field>
+        </record>
+    </data>
+</openerp>

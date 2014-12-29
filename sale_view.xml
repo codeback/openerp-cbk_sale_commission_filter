@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>        
+        <record id="cbk_sale_order_agent_tree" model="ir.ui.view">
+            <field name="name">sale.order.agent.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="user_id" position="before">
+                        <field name="sale_agent_id"/>                                      
+                    </field>                    
+                </data>                
+            </field>
+        </record>        
+
+        <record id="cbk_sale_order_agent_filter" model="ir.ui.view">
+            <field name="name">sale.order.agent.filter</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">                
+                <group expand="0" string="Group By...">                    
+                    <filter string="Agente comercial" icon="terp-go-month" domain="[]"  context="{'group_by':'sale_agent_id'}"/>
+                </group>
+            </field>
+        </record>
+    </data>
+</openerp>
